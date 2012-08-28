@@ -3,7 +3,7 @@ module Spree
     preference :merchant_id, :string
     preference :public_key, :string
     preference :private_key, :string
-    
+
     attr_accessible :preferred_merchant_id, :preferred_public_key, :preferred_private_key
 
     def provider_class
@@ -76,9 +76,7 @@ module Spree
     protected
       def adjust_country_name(options)
         [:billing_address, :shipping_address].each do |address|
-          if options[address] && options[address][:country] == 'US'
-            options[address][:country] = 'United States of America'
-          end
+          options[address][:country] = 'US'
         end
       end
 
